@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<default-config>
+		<property name="user">bi_dma</property>
+		<property name="password">twgdh123</property>
+		<property name="driverClass">oracle.jdbc.driver.OracleDriver</property>
+		<property name="jdbcUrl">jdbc:oracle:thin:@10.156.3.56:1521:bipr</property>
+	</default-config>
+</c3p0-config>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tinghu.business.dao.Fact_sjqt_riskpremMapper">
+  <resultMap id="BaseResultMap" type="org.tinghu.business.entity.Fact_sjqt_riskprem">
+    <constructor>
+      <arg column="DATADATE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INX" javaType="java.lang.Long" jdbcType="DECIMAL" />
+      <arg column="XH" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="INXBM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISKNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PREM" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="STANDPREM" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="DATASOURCE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="REPORTDEPT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="UNIT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CURRENCY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MAKEDATE" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="FREQ" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  
+  <select id="queryFact_sjqt_risk" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <![CDATA[
+  	select * from FACT_SJQT_RISKPREM 
+  	where DATADATE = #{dataDate,jdbcType=VARCHAR}
+  ]]>
+  </select>
+  
+  <insert id="insert" parameterType="org.tinghu.business.entity.Fact_sjqt_riskprem">
+    insert into FACT_SJQT_RISKPREM (DATADATE, INX, XH, 
+      INXBM, NAME, RISKNAME, 
+      PREM, STANDPREM, DATASOURCE, 
+      REPORTDEPT, UNIT, CURRENCY, 
+      MAKEDATE, FREQ)
+    values (#{datadate,jdbcType=VARCHAR}, #{inx,jdbcType=DECIMAL}, #{xh,jdbcType=VARCHAR}, 
+      #{inxbm,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{riskname,jdbcType=VARCHAR}, 
+      #{prem,jdbcType=DECIMAL}, #{standprem,jdbcType=DECIMAL}, #{datasource,jdbcType=VARCHAR}, 
+      #{reportdept,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{currency,jdbcType=VARCHAR}, 
+      #{makedate,jdbcType=DATE}, #{freq,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.tinghu.business.entity.Fact_sjqt_riskprem">
+    insert into FACT_SJQT_RISKPREM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="datadate != null">
+        DATADATE,
+      </if>
+      <if test="inx != null">
+        INX,
+      </if>
+      <if test="xh != null">
+        XH,
+      </if>
+      <if test="inxbm != null">
+        INXBM,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="riskname != null">
+        RISKNAME,
+      </if>
+      <if test="prem != null">
+        PREM,
+      </if>
+      <if test="standprem != null">
+        STANDPREM,
+      </if>
+      <if test="datasource != null">
+        DATASOURCE,
+      </if>
+      <if test="reportdept != null">
+        REPORTDEPT,
+      </if>
+      <if test="unit != null">
+        UNIT,
+      </if>
+      <if test="currency != null">
+        CURRENCY,
+      </if>
+      <if test="makedate != null">
+        MAKEDATE,
+      </if>
+      <if test="freq != null">
+        FREQ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="datadate != null">
+        #{datadate,jdbcType=VARCHAR},
+      </if>
+      <if test="inx != null">
+        #{inx,jdbcType=DECIMAL},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="inxbm != null">
+        #{inxbm,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="riskname != null">
+        #{riskname,jdbcType=VARCHAR},
+      </if>
+      <if test="prem != null">
+        #{prem,jdbcType=DECIMAL},
+      </if>
+      <if test="standprem != null">
+        #{standprem,jdbcType=DECIMAL},
+      </if>
+      <if test="datasource != null">
+        #{datasource,jdbcType=VARCHAR},
+      </if>
+      <if test="reportdept != null">
+        #{reportdept,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="makedate != null">
+        #{makedate,jdbcType=DATE},
+      </if>
+      <if test="freq != null">
+        #{freq,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

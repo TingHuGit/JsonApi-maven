@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.tinghu.business.dao.RateMapper">
+  <resultMap id="BaseResultMap" type="org.tinghu.business.entity.Rate">
+    <constructor>
+      <arg column="DATADATE" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="SALECHNLCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RISKCODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MANAGECOM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MANAGECOMGRADE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MANAGECOMNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="UPMANAGECOM" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="UPMANAGECOMNAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RCVPREM_3_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_3_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_3_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_3_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVPREM_7_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_7_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_7_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_7_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVPREM_13_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_13_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_13_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_13_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVPREM_25_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_25_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_25_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_25_M" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVPREM_3_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_3_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_3_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_3_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVPREM_7_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_7_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_7_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_7_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVPREM_13_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_13_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_13_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_13_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVPREM_25_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDPREM_25_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="RCVCONTNUM_25_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PAIDCONTNUM_25_Y" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+    </constructor>
+  </resultMap>
+  
+  <select id="queryRate" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		select * from CK_RENEWALRATE
+  		where to_char(DATADATE,'yyyy-mm-dd') = #{DATADATE,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <insert id="insert" parameterType="org.tinghu.business.entity.Rate">
+    insert into CK_RENEWALRATE (DATADATE, SALECHNLCODE, RISKCODE, 
+      MANAGECOM, MANAGECOMGRADE, MANAGECOMNAME, 
+      UPMANAGECOM, UPMANAGECOMNAME, RCVPREM_3_M, 
+      PAIDPREM_3_M, RCVCONTNUM_3_M, PAIDCONTNUM_3_M, 
+      RCVPREM_7_M, PAIDPREM_7_M, RCVCONTNUM_7_M, 
+      PAIDCONTNUM_7_M, RCVPREM_13_M, PAIDPREM_13_M, 
+      RCVCONTNUM_13_M, PAIDCONTNUM_13_M, RCVPREM_25_M, 
+      PAIDPREM_25_M, RCVCONTNUM_25_M, PAIDCONTNUM_25_M, 
+      RCVPREM_3_Y, PAIDPREM_3_Y, RCVCONTNUM_3_Y, 
+      PAIDCONTNUM_3_Y, RCVPREM_7_Y, PAIDPREM_7_Y, 
+      RCVCONTNUM_7_Y, PAIDCONTNUM_7_Y, RCVPREM_13_Y, 
+      PAIDPREM_13_Y, RCVCONTNUM_13_Y, PAIDCONTNUM_13_Y, 
+      RCVPREM_25_Y, PAIDPREM_25_Y, RCVCONTNUM_25_Y, 
+      PAIDCONTNUM_25_Y)
+    values (#{datadate,jdbcType=DATE}, #{salechnlcode,jdbcType=VARCHAR}, #{riskcode,jdbcType=VARCHAR}, 
+      #{managecom,jdbcType=VARCHAR}, #{managecomgrade,jdbcType=VARCHAR}, #{managecomname,jdbcType=VARCHAR}, 
+      #{upmanagecom,jdbcType=VARCHAR}, #{upmanagecomname,jdbcType=VARCHAR}, #{rcvprem3M,jdbcType=DECIMAL}, 
+      #{paidprem3M,jdbcType=DECIMAL}, #{rcvcontnum3M,jdbcType=DECIMAL}, #{paidcontnum3M,jdbcType=DECIMAL}, 
+      #{rcvprem7M,jdbcType=DECIMAL}, #{paidprem7M,jdbcType=DECIMAL}, #{rcvcontnum7M,jdbcType=DECIMAL}, 
+      #{paidcontnum7M,jdbcType=DECIMAL}, #{rcvprem13M,jdbcType=DECIMAL}, #{paidprem13M,jdbcType=DECIMAL}, 
+      #{rcvcontnum13M,jdbcType=DECIMAL}, #{paidcontnum13M,jdbcType=DECIMAL}, #{rcvprem25M,jdbcType=DECIMAL}, 
+      #{paidprem25M,jdbcType=DECIMAL}, #{rcvcontnum25M,jdbcType=DECIMAL}, #{paidcontnum25M,jdbcType=DECIMAL}, 
+      #{rcvprem3Y,jdbcType=DECIMAL}, #{paidprem3Y,jdbcType=DECIMAL}, #{rcvcontnum3Y,jdbcType=DECIMAL}, 
+      #{paidcontnum3Y,jdbcType=DECIMAL}, #{rcvprem7Y,jdbcType=DECIMAL}, #{paidprem7Y,jdbcType=DECIMAL}, 
+      #{rcvcontnum7Y,jdbcType=DECIMAL}, #{paidcontnum7Y,jdbcType=DECIMAL}, #{rcvprem13Y,jdbcType=DECIMAL}, 
+      #{paidprem13Y,jdbcType=DECIMAL}, #{rcvcontnum13Y,jdbcType=DECIMAL}, #{paidcontnum13Y,jdbcType=DECIMAL}, 
+      #{rcvprem25Y,jdbcType=DECIMAL}, #{paidprem25Y,jdbcType=DECIMAL}, #{rcvcontnum25Y,jdbcType=DECIMAL}, 
+      #{paidcontnum25Y,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="org.tinghu.business.entity.Rate">
+    insert into CK_RENEWALRATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="datadate != null">
+        DATADATE,
+      </if>
+      <if test="salechnlcode != null">
+        SALECHNLCODE,
+      </if>
+      <if test="riskcode != null">
+        RISKCODE,
+      </if>
+      <if test="managecom != null">
+        MANAGECOM,
+      </if>
+      <if test="managecomgrade != null">
+        MANAGECOMGRADE,
+      </if>
+      <if test="managecomname != null">
+        MANAGECOMNAME,
+      </if>
+      <if test="upmanagecom != null">
+        UPMANAGECOM,
+      </if>
+      <if test="upmanagecomname != null">
+        UPMANAGECOMNAME,
+      </if>
+      <if test="rcvprem3M != null">
+        RCVPREM_3_M,
+      </if>
+      <if test="paidprem3M != null">
+        PAIDPREM_3_M,
+      </if>
+      <if test="rcvcontnum3M != null">
+        RCVCONTNUM_3_M,
+      </if>
+      <if test="paidcontnum3M != null">
+        PAIDCONTNUM_3_M,
+      </if>
+      <if test="rcvprem7M != null">
+        RCVPREM_7_M,
+      </if>
+      <if test="paidprem7M != null">
+        PAIDPREM_7_M,
+      </if>
+      <if test="rcvcontnum7M != null">
+        RCVCONTNUM_7_M,
+      </if>
+      <if test="paidcontnum7M != null">
+        PAIDCONTNUM_7_M,
+      </if>
+      <if test="rcvprem13M != null">
+        RCVPREM_13_M,
+      </if>
+      <if test="paidprem13M != null">
+        PAIDPREM_13_M,
+      </if>
+      <if test="rcvcontnum13M != null">
+        RCVCONTNUM_13_M,
+      </if>
+      <if test="paidcontnum13M != null">
+        PAIDCONTNUM_13_M,
+      </if>
+      <if test="rcvprem25M != null">
+        RCVPREM_25_M,
+      </if>
+      <if test="paidprem25M != null">
+        PAIDPREM_25_M,
+      </if>
+      <if test="rcvcontnum25M != null">
+        RCVCONTNUM_25_M,
+      </if>
+      <if test="paidcontnum25M != null">
+        PAIDCONTNUM_25_M,
+      </if>
+      <if test="rcvprem3Y != null">
+        RCVPREM_3_Y,
+      </if>
+      <if test="paidprem3Y != null">
+        PAIDPREM_3_Y,
+      </if>
+      <if test="rcvcontnum3Y != null">
+        RCVCONTNUM_3_Y,
+      </if>
+      <if test="paidcontnum3Y != null">
+        PAIDCONTNUM_3_Y,
+      </if>
+      <if test="rcvprem7Y != null">
+        RCVPREM_7_Y,
+      </if>
+      <if test="paidprem7Y != null">
+        PAIDPREM_7_Y,
+      </if>
+      <if test="rcvcontnum7Y != null">
+        RCVCONTNUM_7_Y,
+      </if>
+      <if test="paidcontnum7Y != null">
+        PAIDCONTNUM_7_Y,
+      </if>
+      <if test="rcvprem13Y != null">
+        RCVPREM_13_Y,
+      </if>
+      <if test="paidprem13Y != null">
+        PAIDPREM_13_Y,
+      </if>
+      <if test="rcvcontnum13Y != null">
+        RCVCONTNUM_13_Y,
+      </if>
+      <if test="paidcontnum13Y != null">
+        PAIDCONTNUM_13_Y,
+      </if>
+      <if test="rcvprem25Y != null">
+        RCVPREM_25_Y,
+      </if>
+      <if test="paidprem25Y != null">
+        PAIDPREM_25_Y,
+      </if>
+      <if test="rcvcontnum25Y != null">
+        RCVCONTNUM_25_Y,
+      </if>
+      <if test="paidcontnum25Y != null">
+        PAIDCONTNUM_25_Y,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="datadate != null">
+        #{datadate,jdbcType=DATE},
+      </if>
+      <if test="salechnlcode != null">
+        #{salechnlcode,jdbcType=VARCHAR},
+      </if>
+      <if test="riskcode != null">
+        #{riskcode,jdbcType=VARCHAR},
+      </if>
+      <if test="managecom != null">
+        #{managecom,jdbcType=VARCHAR},
+      </if>
+      <if test="managecomgrade != null">
+        #{managecomgrade,jdbcType=VARCHAR},
+      </if>
+      <if test="managecomname != null">
+        #{managecomname,jdbcType=VARCHAR},
+      </if>
+      <if test="upmanagecom != null">
+        #{upmanagecom,jdbcType=VARCHAR},
+      </if>
+      <if test="upmanagecomname != null">
+        #{upmanagecomname,jdbcType=VARCHAR},
+      </if>
+      <if test="rcvprem3M != null">
+        #{rcvprem3M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem3M != null">
+        #{paidprem3M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum3M != null">
+        #{rcvcontnum3M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum3M != null">
+        #{paidcontnum3M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvprem7M != null">
+        #{rcvprem7M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem7M != null">
+        #{paidprem7M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum7M != null">
+        #{rcvcontnum7M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum7M != null">
+        #{paidcontnum7M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvprem13M != null">
+        #{rcvprem13M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem13M != null">
+        #{paidprem13M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum13M != null">
+        #{rcvcontnum13M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum13M != null">
+        #{paidcontnum13M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvprem25M != null">
+        #{rcvprem25M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem25M != null">
+        #{paidprem25M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum25M != null">
+        #{rcvcontnum25M,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum25M != null">
+        #{paidcontnum25M,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvprem3Y != null">
+        #{rcvprem3Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem3Y != null">
+        #{paidprem3Y,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum3Y != null">
+        #{rcvcontnum3Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum3Y != null">
+        #{paidcontnum3Y,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvprem7Y != null">
+        #{rcvprem7Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem7Y != null">
+        #{paidprem7Y,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum7Y != null">
+        #{rcvcontnum7Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum7Y != null">
+        #{paidcontnum7Y,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvprem13Y != null">
+        #{rcvprem13Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem13Y != null">
+        #{paidprem13Y,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum13Y != null">
+        #{rcvcontnum13Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum13Y != null">
+        #{paidcontnum13Y,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvprem25Y != null">
+        #{rcvprem25Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidprem25Y != null">
+        #{paidprem25Y,jdbcType=DECIMAL},
+      </if>
+      <if test="rcvcontnum25Y != null">
+        #{rcvcontnum25Y,jdbcType=DECIMAL},
+      </if>
+      <if test="paidcontnum25Y != null">
+        #{paidcontnum25Y,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>
